@@ -30,7 +30,7 @@ class OperFile(animal):
     def Sorting():# Сортировка
         OperFile.FileOperation()
         x = OperFile()
-        x.AnimalDict.sort(key=itemgetter('Возраст'))                    #Сортировка по столбцу возвраста
+        x.AnimalDict.sort(key=itemgetter('Животные'))                    #Сортировка по столбцу Животным
         print("\033[32m {}" .format( p.DataFrame( x.AnimalDict ) ) , "\n" )
 
         x.AnimalDict.sort(key=itemgetter('№'))                          #Сортировка по столбцу номера
@@ -52,4 +52,4 @@ class Iter(OperFile):
         OperFile.Sorting ()
         Iter.FilterDF().to_csv('SortDataBaseAnimal_P4.csv', index = False )  # Запись в существующий/созданный файл .csv
 
-Iter.CsvRecording()#обращение к функции из класса Iter
+Iter.CsvRecording()        #обращение к функции из класса Iter
