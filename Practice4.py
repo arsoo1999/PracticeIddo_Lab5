@@ -6,9 +6,9 @@ class animal:
         PathCSV = None
         AnimalDict = None
         def __repr__(self): # Создаем словарь с присвоенными к нему данными с открытого файла
-            with open ( self.PathCSV , "r" ) as f:
-                file_reader=p.read_csv ( f , delimiter = ";" )
-                animal.AnimalDict=file_reader.to_dict ( 'records' )
+            with open ( self.PathCSV, "r") as f:
+                file_reader=p.read_csv ( f , delimiter = ";")
+                animal.AnimalDict=file_reader.to_dict('records')
 
 class OperFile(animal):
     PathF = ''
@@ -17,23 +17,23 @@ class OperFile(animal):
         LenFile = repr(len(os.listdir(path = self.PathF)))
         return LenFile
 
-    def __getitem__(self , item): #Функция для обращения по индексу к словарю
+    def __getitem__(self, item): #Функция для обращения по индексу к словарю
         return self.AnimalDict[item]
 
     @staticmethod
     def FileOperation():#Автоматичский ввод пути к папке и к файлу
-        setattr( OperFile, 'PathF', '.')
-        setattr( OperFile, 'PathCSV', "DataBaseAnimal.csv")
+        setattr(OperFile, 'PathF', '.')
+        setattr(OperFile, 'PathCSV', "DataBaseAnimal.csv")
         x = OperFile()
         print("Число хранящихся файлов = ",repr(x))  #Вывод количества файлов в папке
     @staticmethod
     def Sorting():# Сортировка
         OperFile.FileOperation()
         x = OperFile()
-        x.AnimalDict.sort( key=itemgetter( 'Возраст' ) )                    #Сортировка по столбцу возвраста
+        x.AnimalDict.sort(key=itemgetter('Возраст'))                    #Сортировка по столбцу возвраста
         print("\033[32m {}" .format( p.DataFrame( x.AnimalDict ) ) , "\n" )
 
-        x.AnimalDict.sort( key=itemgetter( '№' ) )                          #Сортировка по столбцу номера
+        x.AnimalDict.sort(key=itemgetter('№'))                          #Сортировка по столбцу номера
         print("\033[31m {}" .format( p.DataFrame( x.AnimalDict ) ) , "\n" )
 
 
