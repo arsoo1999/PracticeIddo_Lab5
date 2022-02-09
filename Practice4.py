@@ -30,7 +30,7 @@ class OperFile(animal):
     def Sorting():# Сортировка
         OperFile.FileOperation()
         x = OperFile()
-        x.AnimalDict.sort(key=itemgetter('Возраст'))                    #Сортировка по столбцу возвраста
+        x.AnimalDict.sort(key=itemgetter('Породе'))                    #Сортировка по столбцу породе
         print("\033[32m {}" .format( p.DataFrame( x.AnimalDict ) ) , "\n" )
 
         x.AnimalDict.sort(key=itemgetter('№'))                          #Сортировка по столбцу номера
@@ -42,7 +42,7 @@ class Iter(OperFile):
     def FilterDF():
         x = OperFile()
         for d in reversed ( range ( len ( x.AnimalDict ) ) ):  # Перебор словаря снизу вверх
-                if x.AnimalDict[d]['№'] > 6:                   # Если номер животного равен 6-ти
+                if x.AnimalDict[d]['№'] > 6:                   # Если номер равен 6-ти
                   del x.AnimalDict[d]                          # удаляем строку учавствующую в данном цикле
         AnimalDict = p.DataFrame(x.AnimalDict)                 # Словарь конвертируем в DataFrame
         print ( "\033[34m {}".format ( AnimalDict ) , "\n" )   # Вывод результата
@@ -52,4 +52,4 @@ class Iter(OperFile):
         OperFile.Sorting ()
         Iter.FilterDF().to_csv('SortDataBaseAnimal_P4.csv', index = False )  # Запись в существующий/созданный файл .csv
 
-Iter.CsvRecording()#обращение к функции из класса Iter
+Iter.CsvRecording()      #обращение к функции из класса Iter
