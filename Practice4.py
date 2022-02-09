@@ -3,7 +3,7 @@ import pandas as p
 from operator import itemgetter
 
 class animal:
-        PathCSV = ''
+        PathCSV = None
         AnimalDict = None
         def __repr__(self): # Создаем словарь с присвоенными к нему данными с открытого файла
             with open ( self.PathCSV , "r" ) as f:
